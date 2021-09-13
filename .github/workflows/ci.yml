@@ -9,7 +9,7 @@ jobs:
   run-tests-linux:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repo
+    - name: Checkout tests
       uses: actions/checkout@v1
     - name: Checkout simutrans
       uses: actions/checkout@v1
@@ -32,7 +32,6 @@ jobs:
     - name: Configure Simutrans Build
       run: |
         pushd $GITHUB_WORKSPACE/../simutrans-git
-        patch -p1 < $GITHUB_WORKSPACE/scripts/scenario-option.patch
         touch revision.h
         autoconf
         CC="ccache clang-10" CXX="ccache clang++-10" ./configure
