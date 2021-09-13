@@ -29,7 +29,7 @@ do
 		break
 	fi
 
-	if [[ -n "$(grep 'error [Call function failed] calling' output.log)" ]]
+	if [[ -n "$(grep 'error \[Call function failed\] calling' output.log)" ]]
 	then
 		# kill
 		echo "Killing process (test failed)"
