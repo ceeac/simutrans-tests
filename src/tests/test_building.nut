@@ -9,19 +9,12 @@ function test_building_build_house()
 	local builder = command_x(tool_build_house)
 	local remover = command_x(tool_remover)
 
+	// Invalid pos: error
 	{
 		ASSERT_EQUAL(builder.work(pl, coord3d(-1, 1, 0)), "")
 	}
 
-	{
-		ASSERT_EQUAL(builder.work(pl, coord3d(0, 0, 0)), null)
-		local b = building_x(0, 0, 0)
-		ASSERT_EQUAL(b.get_owner().get_name(), public_pl.get_name())
-//		ASSERT_EQUAL(b.get_desc().get_name(), "RUIN_0") // Building desc is random
-
-		ASSERT_EQUAL(remover.work(public_pl, coord3d(0, 0, 0)), null)
-	}
-
+	// empty default_param: error
 	{
 		local error_caught = false
 		try {
@@ -34,6 +27,7 @@ function test_building_build_house()
 		ASSERT_TRUE(error_caught)
 	}
 
+	// Invalid default_param: error
 	{
 		local error_caught = false
 		try {
@@ -46,6 +40,7 @@ function test_building_build_house()
 		ASSERT_TRUE(error_caught)
 	}
 
+	// Invalid default_param: error
 	{
 		local error_caught = false
 		try {
@@ -58,6 +53,7 @@ function test_building_build_house()
 		ASSERT_TRUE(error_caught)
 	}
 
+	// Invalid default_param: error
 	{
 		local error_caught = false
 		try {
@@ -70,13 +66,37 @@ function test_building_build_house()
 		ASSERT_TRUE(error_caught)
 	}
 
+	// no default_param: random building
+	// built by player, owned by pubic player
 	{
-		ASSERT_EQUAL(builder.work(pl, coord3d(0, 0, 0), "1#RUIN_0"), null)
+		ASSERT_EQUAL(builder.work(pl, coord3d(0, 0, 0)), null)
+
+		local b = building_x(0, 0, 0)
+		ASSERT_EQUAL(b.get_owner().get_name(), public_pl.get_name())
+
+		ASSERT_EQUAL(remover.work(public_pl, coord3d(0, 0, 0)), null)
+
+		// check that foundations are removed
+		ASSERT_TRUE(tile_x(0, 0, 0).is_empty())
+		ASSERT_TRUE(tile_x(0, 1, 0).is_empty())
+		ASSERT_TRUE(tile_x(1, 0, 0).is_empty())
+		ASSERT_TRUE(tile_x(1, 1, 0).is_empty())
+	}
+
+	// Valid default_param: Build specific building
+	{
+		ASSERT_EQUAL(builder.work(public_pl, coord3d(0, 0, 0), "1#RUIN_0"), null)
 		local b = building_x(0, 0, 0)
 		ASSERT_EQUAL(b.get_owner().get_name(), public_pl.get_name())
 		ASSERT_EQUAL(b.get_desc().get_name(), "RUIN_0")
 
 		ASSERT_EQUAL(remover.work(public_pl, coord3d(0, 0, 0)), null)
+
+		// check that foundations are removed
+		ASSERT_TRUE(tile_x(0, 0, 0).is_empty())
+		ASSERT_TRUE(tile_x(0, 1, 0).is_empty())
+		ASSERT_TRUE(tile_x(1, 0, 0).is_empty())
+		ASSERT_TRUE(tile_x(1, 1, 0).is_empty())
 	}
 
 	RESET_ALL_PLAYER_FUNDS()

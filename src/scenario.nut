@@ -28,6 +28,10 @@ function run_all_tests()
 	num_tests_done = 0
 	error_msg = null
 
+	print("============================================================")
+	print("== Running tests ... =======================================")
+	print("============================================================")
+
 	foreach (i,test_fun in all_tests) {
 		print("Running test " + (num_tests_done+1) + "/" + num_tests + "...")
 		test_fun() // run the test
