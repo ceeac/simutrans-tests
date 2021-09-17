@@ -260,6 +260,7 @@ function test_factory_link()
 		}
 	}
 
+	// link factories
 	{
 		// default_param is necessary even though it is not used
 		ASSERT_EQUAL(command_x(tool_link_factory).work(pl, coord3d(0, 0, 0), coord3d(6, 6, 0), ""), null)
@@ -277,8 +278,8 @@ function test_factory_link()
 		ASSERT_EQUAL(pp.get_suppliers()[0].y, mine.y)
 	}
 
+	// second link should have no effect
 	{
-		// second link should have no effect
 		ASSERT_EQUAL(command_x(tool_link_factory).work(pl, coord3d(0, 0, 0), coord3d(6, 6, 0), ""), null)
 
 		ASSERT_EQUAL(mine.get_consumers().len(), 1)
@@ -294,8 +295,8 @@ function test_factory_link()
 		ASSERT_EQUAL(pp.get_suppliers()[0].y, mine.y)
 	}
 
+	// unlink factories
 	{
-		// unlink factories
 		local tool = command_x(tool_link_factory)
 		tool.set_flags(2) // ctrl == unlink
 		ASSERT_EQUAL(tool.work(pl, coord3d(0, 0, 0), coord3d(7, 7, 0), ""), null)
@@ -307,8 +308,8 @@ function test_factory_link()
 		ASSERT_EQUAL(pp.get_suppliers().len(), 0)
 	}
 
+	// second unlink should have no effect
 	{
-		// second unlink should have no effect
 		local tool = command_x(tool_link_factory)
 		tool.set_flags(2) // ctrl == unlink
 		ASSERT_EQUAL(tool.work(pl, coord3d(0, 0, 0), coord3d(7, 7, 0), ""), null)

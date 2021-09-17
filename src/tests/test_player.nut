@@ -2,8 +2,6 @@
 // Tests for player_x stuff
 //
 
-//include("../test_helpers")
-
 
 function test_player_cash()
 {

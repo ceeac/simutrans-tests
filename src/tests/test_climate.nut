@@ -16,6 +16,7 @@ function test_climate_invalid()
 	ASSERT_EQUAL(setclimate.work(pl, coord3d(-1, -1, 0), coord3d(-1, -1, 0), "" + cl_water), null)
 }
 
+
 function test_climate_flat()
 {
 	local pl = player_x(0)

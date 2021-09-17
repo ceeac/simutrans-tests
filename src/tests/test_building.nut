@@ -147,7 +147,7 @@ function test_building_rotate_house()
 		ASSERT_EQUAL(rotator.work(pl, coord3d(0, 0, 0)), null)
 	}
 
-	ASSERT_EQUAL(builder.work(pl, coord3d(0, 0, 0), "01A4_SCHLOSS2"), null)
+	ASSERT_EQUAL(builder.work(public_pl, coord3d(0, 0, 0), "01A4_SCHLOSS2"), null)
 
 	// cannot rotate buildings owned by other players
 	{

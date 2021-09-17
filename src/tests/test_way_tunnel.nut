@@ -438,6 +438,7 @@ function test_way_tunnel_make_public()
 		ASSERT_EQUAL(public_pl.get_current_cash(), old_public_cash)
 	}
 
+	// clean up
 	ASSERT_EQUAL(command_x(tool_remove_way).work(public_pl, coord3d(4, 2, 0), coord3d(4, 4, 0), "" + wt_road), null)
 
 	ASSERT_EQUAL(lower.work(public_pl, coord3d(4, 3, 1)), null)

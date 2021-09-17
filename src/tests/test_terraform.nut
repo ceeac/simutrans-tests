@@ -101,10 +101,10 @@ function test_terraform_raise_lower_land_at_water_corner()
 
 	// FIXME inconsistencies with raising/lowering depending on direction
 
+	// raise north-west corner
 	{
 		ASSERT_EQUAL(clim.work(player_x(0), coord3d(2, 3, 0), coord3d(3, 2, 0), "" + cl_water), null)
 
-		// raise north-west corner
 		ASSERT_EQUAL(raise.work(player_x(0), coord3d(2, 2, 0)), "")
 
 		ASSERT_FALSE(tile_x(2, 2, 0).is_water())
@@ -113,10 +113,10 @@ function test_terraform_raise_lower_land_at_water_corner()
 		ASSERT_TRUE(tile_x(3, 3, 0).is_water())
 	}
 
+	// lower north-west corner
 	{
 		ASSERT_EQUAL(clim.work(player_x(0), coord3d(2, 3, 0), coord3d(3, 2, 0), "" + cl_water), null)
 
-		// lower north-west corner
 		ASSERT_EQUAL(lower.work(player_x(0), coord3d(2, 2, 0)), "")
 
 		ASSERT_TRUE(tile_x(2, 2, 0).is_water())
@@ -126,10 +126,10 @@ function test_terraform_raise_lower_land_at_water_corner()
 	}
 
 
+	// raise south-east corner
 	{
 		ASSERT_EQUAL(clim.work(player_x(0), coord3d(2, 3, 0), coord3d(3, 2, 0), "" + cl_water), null)
 
-		// raise south-east corner
 		ASSERT_EQUAL(raise.work(player_x(0), coord3d(2, 4, 0)), null)
 
 		ASSERT_TRUE(tile_x(2, 2, 0).is_water())
@@ -140,10 +140,10 @@ function test_terraform_raise_lower_land_at_water_corner()
 		ASSERT_EQUAL(lower.work(player_x(0), coord3d(2, 4, 0)), null)
 	}
 
+	// lower south-east corner
 	{
 		ASSERT_EQUAL(clim.work(player_x(0), coord3d(2, 3, 0), coord3d(3, 2, 0), "" + cl_water), null)
 
-		// lower south-east corner
 		ASSERT_EQUAL(lower.work(player_x(0), coord3d(2, 4, 0)), null)
 
 		ASSERT_FALSE(tile_x(2, 2, 0).is_water())
@@ -154,10 +154,10 @@ function test_terraform_raise_lower_land_at_water_corner()
 		ASSERT_EQUAL(raise.work(player_x(0), coord3d(2, 4, 0)), null)
 	}
 
+	// raise south-west corner
 	{
 		ASSERT_EQUAL(clim.work(player_x(0), coord3d(2, 3, 0), coord3d(3, 2, 0), "" + cl_water), null)
 
-		// raise south-west corner
 		ASSERT_EQUAL(raise.work(player_x(0), coord3d(4, 4, 0)), null)
 
 		ASSERT_TRUE(tile_x(2, 2, 0).is_water())
@@ -168,10 +168,10 @@ function test_terraform_raise_lower_land_at_water_corner()
 		ASSERT_EQUAL(lower.work(player_x(0), coord3d(4, 4, 0)), null)
 	}
 
+	// lower south-west corner
 	{
 		ASSERT_EQUAL(clim.work(player_x(0), coord3d(2, 3, 0), coord3d(3, 2, 0), "" + cl_water), null)
 
-		// lower south-west corner
 		ASSERT_EQUAL(lower.work(player_x(0), coord3d(4, 4, 0)), null)
 
 		ASSERT_TRUE(tile_x(2, 2, 0).is_water())
@@ -182,10 +182,10 @@ function test_terraform_raise_lower_land_at_water_corner()
 		ASSERT_EQUAL(raise.work(player_x(0), coord3d(4, 4, 0)), null)
 	}
 
+	// raise north-west corner
 	{
 		ASSERT_EQUAL(clim.work(player_x(0), coord3d(2, 3, 0), coord3d(3, 2, 0), "" + cl_water), null)
 
-		// raise north-west corner
 		ASSERT_EQUAL(raise.work(player_x(0), coord3d(4, 2, 0)), null)
 
 		ASSERT_TRUE(tile_x(2, 2, 0).is_water())
@@ -196,10 +196,10 @@ function test_terraform_raise_lower_land_at_water_corner()
 		ASSERT_EQUAL(lower.work(player_x(0), coord3d(4, 2, 0)), null)
 	}
 
+	// lower north-west corner
 	{
 		ASSERT_EQUAL(clim.work(player_x(0), coord3d(2, 3, 0), coord3d(3, 2, 0), "" + cl_water), null)
 
-		// lower north-west corner
 		ASSERT_EQUAL(lower.work(player_x(0), coord3d(4, 2, 0)), null)
 
 		ASSERT_FALSE(tile_x(2, 2, 0).is_water())
@@ -225,10 +225,10 @@ function test_terraform_raise_lower_land_at_water_edge()
 
 	// FIXME inconsistencies with raising/lowering depending on direction
 
+	// raise north edge
 	{
 		ASSERT_EQUAL(clim.work(player_x(0), coord3d(2, 3, 0), coord3d(3, 2, 0), "" + cl_water), null)
 
-		// raise north edge
 		ASSERT_EQUAL(raise.work(player_x(0), coord3d(3, 2, 0)), "")
 
 		ASSERT_TRUE(tile_x(2, 2, 0).is_water())
@@ -237,10 +237,10 @@ function test_terraform_raise_lower_land_at_water_edge()
 		ASSERT_TRUE(tile_x(3, 3, 0).is_water())
 	}
 
+	// lower north edge
 	{
 		ASSERT_EQUAL(clim.work(player_x(0), coord3d(2, 3, 0), coord3d(3, 2, 0), "" + cl_water), null)
 
-		// lower north edge
 		ASSERT_EQUAL(lower.work(player_x(0), coord3d(3, 2, 0)), "")
 
 		ASSERT_TRUE(tile_x(2, 2, 0).is_water())
@@ -249,10 +249,10 @@ function test_terraform_raise_lower_land_at_water_edge()
 		ASSERT_TRUE(tile_x(3, 3, 0).is_water())
 	}
 
+	// raise east edge
 	{
 		ASSERT_EQUAL(clim.work(player_x(0), coord3d(2, 3, 0), coord3d(3, 2, 0), "" + cl_water), null)
 
-		// raise east edge
 		ASSERT_EQUAL(raise.work(player_x(0), coord3d(4, 3, 0)), null)
 
 		ASSERT_TRUE(tile_x(2, 2, 0).is_water())
@@ -263,10 +263,10 @@ function test_terraform_raise_lower_land_at_water_edge()
 		ASSERT_EQUAL(lower.work(player_x(0), coord3d(4, 3, 0)), null)
 	}
 
+	// lower east edge
 	{
 		ASSERT_EQUAL(clim.work(player_x(0), coord3d(2, 3, 0), coord3d(3, 2, 0), "" + cl_water), null)
 
-		// lower east edge
 		ASSERT_EQUAL(lower.work(player_x(0), coord3d(4, 3, 0)), null)
 
 		ASSERT_TRUE(tile_x(2, 2, 0).is_water())
@@ -277,10 +277,10 @@ function test_terraform_raise_lower_land_at_water_edge()
 		ASSERT_EQUAL(raise.work(player_x(0), coord3d(4, 3, 0)), null)
 	}
 
+	// raise south edge
 	{
 		ASSERT_EQUAL(clim.work(player_x(0), coord3d(2, 3, 0), coord3d(3, 2, 0), "" + cl_water), null)
 
-		// raise south edge
 		ASSERT_EQUAL(raise.work(player_x(0), coord3d(3, 4, 0)), null)
 
 		ASSERT_TRUE(tile_x(2, 2, 0).is_water())
@@ -291,10 +291,10 @@ function test_terraform_raise_lower_land_at_water_edge()
 		ASSERT_EQUAL(lower.work(player_x(0), coord3d(3, 4, 0)), null)
 	}
 
+	// lower south edge
 	{
 		ASSERT_EQUAL(clim.work(player_x(0), coord3d(2, 3, 0), coord3d(3, 2, 0), "" + cl_water), null)
 
-		// lower south edge
 		ASSERT_EQUAL(lower.work(player_x(0), coord3d(3, 4, 0)), null)
 
 		ASSERT_FALSE(tile_x(2, 2, 0).is_water())
@@ -305,10 +305,10 @@ function test_terraform_raise_lower_land_at_water_edge()
 		ASSERT_EQUAL(raise.work(player_x(0), coord3d(3, 4, 0)), null)
 	}
 
+	// raise west edge
 	{
 		ASSERT_EQUAL(clim.work(player_x(0), coord3d(2, 3, 0), coord3d(3, 2, 0), "" + cl_water), null)
 
-		// raise west edge
 		ASSERT_EQUAL(raise.work(player_x(0), coord3d(2, 3, 0)), "")
 
 		ASSERT_TRUE(tile_x(2, 2, 0).is_water())
@@ -317,10 +317,10 @@ function test_terraform_raise_lower_land_at_water_edge()
 		ASSERT_TRUE(tile_x(3, 3, 0).is_water())
 	}
 
+	// lower west edge
 	{
 		ASSERT_EQUAL(clim.work(player_x(0), coord3d(2, 3, 0), coord3d(3, 2, 0), "" + cl_water), null)
 
-		// lower west edge
 		ASSERT_EQUAL(lower.work(player_x(0), coord3d(2, 3, 0)), "")
 
 		ASSERT_TRUE(tile_x(2, 2, 0).is_water())
@@ -406,7 +406,7 @@ function test_terraform_raise_lower_land_below_way()
 		ASSERT_EQUAL(setslope.work(pl, coord3d(4, 4, -1), "" + slope.all_up_slope), null)
 	}
 
-	// non-dead-end, shoud fail for all slopes
+	// non-dead-end, should fail for all slopes
 	{
 		for (local sl = slope.flat+1; sl <= slope.all_down_slope; ++sl) {
 			if (sl != slope.raised && sl != 81) {
@@ -420,6 +420,7 @@ function test_terraform_raise_lower_land_below_way()
 }
 
 
+/// Helper function: Raise / lower land along the edge of a rectangular region
 function terraform_volcano(pl, pos, size, h)
 {
 	local raise = h > 0
@@ -626,6 +627,8 @@ function test_terraform_raise_lower_water_level()
 		command_x(tool_raise_land).work(pl, coord3d(5, 5, 1))
 		command_x(tool_raise_land).work(pl, coord3d(6, 6, 1))
 	}
+
+	// clean up
 
 	terraform_volcano(public_pl, coord3d(2, 2, 2), 7, -2)
 	terraform_volcano(public_pl, coord3d(5, 5, 2), 1, -2)
