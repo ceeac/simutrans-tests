@@ -113,17 +113,19 @@ function test_building_build_multi_tile_sloped()
 
 	local building_desc = building_desc_x("STADIUM2") // 3x2 size
 
-	ASSERT_EQUAL(raise.work(pl, coord3d(4, 2, 0)), null) // FIXME
+	ASSERT_EQUAL(raise.work(pl, coord3d(4, 2, 0)), null)
 
 	{
 		ASSERT_EQUAL(builder.work(pl, coord3d(3, 1, 0), "11" + building_desc.get_name()), null)
-		ASSERT_EQUAL(remover.work(pl, coord3d(3, 1, 0)), null) // FIXME this does not fix the grid height
+		ASSERT_EQUAL(remover.work(pl, coord3d(3, 1, 0)), null)
 
-		ASSERT_EQUAL(tile_x(3, 1, 0).get_slope(), slope.flat)
-		ASSERT_EQUAL(tile_x(4, 1, 0).get_slope(), slope.flat)
-		ASSERT_EQUAL(tile_x(3, 2, 0).get_slope(), slope.flat)
-		ASSERT_EQUAL(tile_x(4, 2, 0).get_slope(), slope.flat)
+		ASSERT_EQUAL(tile_x(3, 1, 0).get_slope(), slope.southeast)
+		ASSERT_EQUAL(tile_x(4, 1, 0).get_slope(), slope.southwest)
+		ASSERT_EQUAL(tile_x(3, 2, 0).get_slope(), slope.northeast)
+		ASSERT_EQUAL(tile_x(4, 2, 0).get_slope(), slope.northwest)
 	}
+
+	ASSERT_EQUAL(lower.work(pl, coord3d(4, 2, 1)), null)
 
 	RESET_ALL_PLAYER_FUNDS()
 }

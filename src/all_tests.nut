@@ -29,7 +29,7 @@ include("tests/test_wayobj")
 
 all_tests <- [
 	test_building_build_house,
-// 	test_building_build_multi_tile_sloped, // FIXME grid height is not updated correctly
+	test_building_build_multi_tile_sloped,
 	test_building_rotate_house,
 	test_building_rotate_harbour,
 	test_building_rotate_station,
@@ -92,7 +92,7 @@ all_tests <- [
 	test_powerline_connect,
 	test_powerline_bridge,
 	test_powerline_build_transformer,
-// 	test_powerline_build_over_transformer // FIXME
+	test_powerline_build_over_transformer
 	test_powerline_build_transformer_multiple,
 	test_powerline_ways,
 	test_reservation_clear_ground,
