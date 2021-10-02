@@ -1,7 +1,7 @@
 # simutrans-tests
 
 Semi-automated tests for the popular game Simutrans.
-These tests are compatible with Simutrans r10083 and up.
+These tests are compatible with Simutrans r10121 and up.
 
 ## Installation and usage
 
